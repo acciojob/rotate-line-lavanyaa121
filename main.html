@@ -1,10 +1,7 @@
 <!DOCTYPE html>
-
 <html>
-
 <head>
-	<link rel="stylesheet" href="styles.css">
-	<style>
+  <style>
     #line {
       position: absolute;
       top: 50%;
@@ -15,16 +12,31 @@
       height: 2px;
     }
   </style>
-
 </head>
-
 <body>
-	<div id="line"></div>
+  <div id="line"></div>
 
-	<!-- the entire body must be written by student -->
-    <script type="text/javascript" src="./script.js">
-</script>
+  <script>
+    // Get the line element
+ const line = document.getElementById("line");
 
+    // Set the initial rotation angle
+    let angle = 0;
+
+    // Function to rotate the line
+    function rotateLine() {
+      angle += 1; // Increase the rotation angle
+
+      // Apply the rotation transform
+      line.style.transform = `translate(-50%, -50%) rotate(${angle}deg)`;
+
+      // Call the function again in the next frame
+      requestAnimationFrame(rotateLine);
+    }
+
+    // Start rotating the line
+    rotateLine();
+  </script>
 </body>
-
 </html>
+
